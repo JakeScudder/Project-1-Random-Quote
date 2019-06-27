@@ -72,7 +72,7 @@ body {
 }
 .category {
   font-style: italic;
-  font-family:"Times New Roman"; 
+  font-family:"Times New Roman";
 }
 
 .category:before {

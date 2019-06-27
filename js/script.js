@@ -12,10 +12,17 @@ let quotes = [
   {quote:"Persistence is very important. You should not give up unless you are forced to give up." , source: "Elon Musk", category: "Entrepreneur" }
 
 ];
-//console.log(quotes);
 
+//Random color generator from https://css-tricks.com/snippets/javascript/random-hex-color/
 
+//Can't seem to link it to the background color though.  Tried altering the css with var(--randomColor), but this didn't work.
 
+var randomColor = Math.floor(Math.random()*16777215).toString(16);
+console.log(randomColor);
+
+//Load new quotes
+
+var newQuote = window.setInterval(printQuote(), 1000);
 
 //This function gets a random Quote by first getting a random Number and then searching the index of the quotes array for that object.
 function getRandomQuote() {
@@ -24,7 +31,7 @@ function getRandomQuote() {
 }
 
 
-
+//
 function printQuote() {
   let html = '';
   let randomQuote =  getRandomQuote();
@@ -45,6 +52,7 @@ function printQuote() {
   div.innerHTML = html;
   return div
 }
+
 
 
 
