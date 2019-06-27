@@ -1,1 +1,1 @@
-# Project 1 Random Quote
+# Project 1 Random Quote Generator
