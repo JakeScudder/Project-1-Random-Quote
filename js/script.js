@@ -20,7 +20,7 @@ let quotes = [
 var randomColor = Math.floor(Math.random()*16777215).toString(16);
 console.log(randomColor);
 
-//Load new quotes
+//Load new quotes: Also non-working
 
 var newQuote = window.setInterval(printQuote(), 1000);
 
@@ -31,7 +31,7 @@ function getRandomQuote() {
 }
 
 
-//
+//This function creates an html string by accessing the different key/value pairs in the quote object. It then prints that string to the webpage by linking it to the quote-box ID.
 function printQuote() {
   let html = '';
   let randomQuote =  getRandomQuote();
