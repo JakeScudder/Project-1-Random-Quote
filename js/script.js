@@ -10,47 +10,39 @@ let quotes = [
   {quote:"Curb your desire—don’t set your heart on so many things and you will get what you need." , source: "Epictetus", category: "Minimalism" },
   {quote:"Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned." , source: "Buddha" },
   {quote:"Persistence is very important. You should not give up unless you are forced to give up." , source: "Elon Musk", category: "Entrepreneur" }
-
 ];
 
 //This function gets a random Quote by first getting a random Number and then searching the index of the quotes array for that object.
+
 function getRandomQuote() {
   let randomNum = Math.floor(Math.random() * 5);
   return quotes[randomNum];
 }
 
-//Background color array containing color objects.
-let colors = [
-  {color:"deepskyblue"},
-  {color: "gainsboro"},
-  {color: "forestgreen"},
-  {color: "rosybrown"},
-  {color: "steelblue"},
-  {color: "tan"},
-  {color: "sienna"},
-];
-//function to pull a random color from the background color array
+//Background color array containing css colors.
+let colors = ['deepskyblue', 'gainsboro', 'forestgreen','rosybrown', 'steelblue', 'tan', 'sienna'];
+
+//Function to pull a random color from the background color array.
 function randomColor() {
   let randomNum2 = Math.floor(Math.random() * 7);
   return colors[randomNum2];
 
 }
 
-
-
 /*
-This function creates an empty html string.  It then uses the getRandomQuote function to select a random quote from the quote array.  It starts to compile a string of html from the different key/value pairs associated with that random quote.  Once the html is all concatenated, it will then print that quote to the webpage.
+This function creates an empty html string.
+It then uses the getRandomQuote function to select a random quote from the quote array.
+It starts to compile a string of html from the different key/value pairs associated with that random quote.  Once the html is all concatenated, it will then print that quote to the webpage.
 
-I set a interval time to reload the quote of 25 seconds
-
+I set an interval time to reload the quote of 25 seconds.
+Background color changes when the button is pressed or when the interval time elapses.
 */
 
 function printQuote() {
   let html = '';
   let newQuote = window.setInterval(printQuote, 25000);
   let newBackground = randomColor();
-  console.log(newBackground);
-  document.body.style.backgroundColor = newBackground;
+  document.body.style.background = newBackground;
   let randomQuote =  getRandomQuote();
   html += '<p class="quote">' + randomQuote.quote + '</p>';
   html += '<p class="source">' + randomQuote.source;
@@ -65,16 +57,15 @@ function printQuote() {
   }
   html += '</p>';
 
+//Not sure I fully understand this part.
+//The variable div is being set to the quote box ID.
+//Then the innerHTML is changed to the html string we compiled.
+//Then we return that div.
 
   let div = document.getElementById('quote-box');
   div.innerHTML = html;
   return div
 }
-
-
-
-
-
 
 /***
   When the "Show another quote" button is clicked, the event listener
