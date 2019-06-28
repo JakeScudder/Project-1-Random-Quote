@@ -13,27 +13,44 @@ let quotes = [
 
 ];
 
-//Random color generator from https://css-tricks.com/snippets/javascript/random-hex-color/
-
-//Can't seem to link it to the background color though.  Tried altering the css with var(--randomColor), but this didn't work.
-
-var randomColor = Math.floor(Math.random()*16777215).toString(16);
-console.log(randomColor);
-
-//Load new quotes: Also non-working
-
-var newQuote = window.setInterval(printQuote(), 1000);
-
 //This function gets a random Quote by first getting a random Number and then searching the index of the quotes array for that object.
 function getRandomQuote() {
   let randomNum = Math.floor(Math.random() * 5);
   return quotes[randomNum];
 }
 
+//Background color array containing color objects.
+let colors = [
+  {color:"deepskyblue"},
+  {color: "gainsboro"},
+  {color: "forestgreen"},
+  {color: "rosybrown"},
+  {color: "steelblue"},
+  {color: "tan"},
+  {color: "sienna"},
+];
+//function to pull a random color from the background color array
+function randomColor() {
+  let randomNum2 = Math.floor(Math.random() * 7);
+  return colors[randomNum2];
 
-//This function creates an html string by accessing the different key/value pairs in the quote object. It then prints that string to the webpage by linking it to the quote-box ID.
+}
+
+
+
+/*
+This function creates an empty html string.  It then uses the getRandomQuote function to select a random quote from the quote array.  It starts to compile a string of html from the different key/value pairs associated with that random quote.  Once the html is all concatenated, it will then print that quote to the webpage.
+
+I set a interval time to reload the quote of 25 seconds
+
+*/
+
 function printQuote() {
   let html = '';
+  let newQuote = window.setInterval(printQuote, 25000);
+  let newBackground = randomColor();
+  console.log(newBackground);
+  document.body.style.backgroundColor = newBackground;
   let randomQuote =  getRandomQuote();
   html += '<p class="quote">' + randomQuote.quote + '</p>';
   html += '<p class="source">' + randomQuote.source;
@@ -47,6 +64,7 @@ function printQuote() {
     html += '<span class="category">' + randomQuote.category + '</span>';
   }
   html += '</p>';
+
 
   let div = document.getElementById('quote-box');
   div.innerHTML = html;
