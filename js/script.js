@@ -5,11 +5,29 @@ project 1 - A Random Quote Generator
 
 //This is a quotes array.  It contains objects that contain the quote, the source, and possibly include further information relating to the quote.
 let quotes = [
-  {quote:"Very little is needed to make a happy life; it is all within yourself, in your way of thinking.", source: "Marcus Aurelius", citation: "Meditations", year: 1558  },
-  {quote:"Nothing, to my way of thinking, is a better proof of a well ordered mind than a man’s ability to stop just where he is and pass some time in his own company." , source: "Seneca", category: "Stoicism" },
-  {quote:"Curb your desire—don’t set your heart on so many things and you will get what you need." , source: "Epictetus", category: "Minimalism" },
-  {quote:"Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned." , source: "Buddha" },
-  {quote:"Persistence is very important. You should not give up unless you are forced to give up." , source: "Elon Musk", category: "Entrepreneur" }
+  {
+  quote:"Very little is needed to make a happy life; it is all within yourself, in your way of thinking.", source: "Marcus Aurelius",
+  citation: "Meditations",
+  year: 1558
+  },
+  {
+  quote:"Nothing, to my way of thinking, is a better proof of a well ordered mind than a man’s ability to stop just where he is and pass some time in his own company." ,
+  source: "Seneca",
+  category: "Stoicism"
+  },
+  {
+  quote:"Curb your desire—don’t set your heart on so many things and you will get what you need.",
+  source: "Epictetus",
+  category: "Minimalism"
+  },
+  {
+  quote:"Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned.",
+  source: "Buddha" },
+  {
+  quote:"Persistence is very important. You should not give up unless you are forced to give up.",
+  source: "Elon Musk",
+  category: "Entrepreneur"
+  }
 ];
 
 //This function gets a random Quote by first getting a random Number and then searching the index of the quotes array for that object.
@@ -43,6 +61,7 @@ function printQuote() {
   let html = '';
   let newBackground = randomColor();
   document.body.style.background = newBackground;
+  //document.getElementByID("loadQuote").style.background-color = newBackground;
   let randomQuote =  getRandomQuote();
   html += '<p class="quote">' + randomQuote.quote + '</p>';
   html += '<p class="source">' + randomQuote.source;
