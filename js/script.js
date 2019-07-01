@@ -61,7 +61,8 @@ function printQuote() {
   let html = '';
   let newBackground = randomColor();
   document.body.style.background = newBackground;
-  //document.getElementByID("loadQuote").style.background-color = newBackground;
+  //I am trying to changed the button ID color
+  document.getElementById("loadQuote").style.backgroundColor = newBackground;
   let randomQuote =  getRandomQuote();
   html += '<p class="quote">' + randomQuote.quote + '</p>';
   html += '<p class="source">' + randomQuote.source;
