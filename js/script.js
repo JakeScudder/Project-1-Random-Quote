@@ -47,7 +47,6 @@ function randomColor() {
 
 }
 
-let newQuote = window.setInterval(printQuote, 25000);
 /*
 This function creates an empty html string.
 It then uses the getRandomQuote function to select a random quote from the quote array.
@@ -61,7 +60,7 @@ function printQuote() {
   let html = '';
   let newBackground = randomColor();
   document.body.style.background = newBackground;
-  //I am trying to changed the button ID color
+  //line below matches new background color to quote button
   document.getElementById("loadQuote").style.backgroundColor = newBackground;
   let randomQuote =  getRandomQuote();
   html += '<p class="quote">' + randomQuote.quote + '</p>';
@@ -86,6 +85,12 @@ function printQuote() {
   div.innerHTML = html;
   return div
 }
+
+
+
+let newQuote = window.setInterval(printQuote, 10000);
+
+
 
 /***
   When the "Show another quote" button is clicked, the event listener
