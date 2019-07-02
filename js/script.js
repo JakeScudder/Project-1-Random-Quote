@@ -69,6 +69,7 @@ function printQuote() {
   //Sets the window interval to change every 20 seconds. Then resets the timer
   let newQuote = window.setInterval(printQuote, 10000);
   clearInterval(newQuote);
+
   let randomQuote =  getRandomQuote();
   html += '<p class="quote">' + randomQuote.quote + '</p>';
   html += '<p class="source">' + randomQuote.source;
