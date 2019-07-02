@@ -46,6 +46,9 @@ function randomColor() {
   return colors[randomNum2];
 
 }
+function stopTimer() {
+  clearInterval(newQuote);
+}
 
 /*
 This function creates an empty html string.
@@ -59,9 +62,13 @@ Background color changes when the button is pressed or when the interval time el
 function printQuote() {
   let html = '';
   let newBackground = randomColor();
+  //Sets a new background color, then matches it to the quote button
   document.body.style.background = newBackground;
-  //line below matches new background color to quote button
   document.getElementById("loadQuote").style.backgroundColor = newBackground;
+
+  //Sets the window interval to change every 20 seconds. Then resets the timer
+  let newQuote = window.setInterval(printQuote, 10000);
+  clearInterval(newQuote);
   let randomQuote =  getRandomQuote();
   html += '<p class="quote">' + randomQuote.quote + '</p>';
   html += '<p class="source">' + randomQuote.source;
@@ -76,19 +83,13 @@ function printQuote() {
   }
   html += '</p>';
 
-//Not sure I fully understand this part.
 //The variable div is being set to the quote box ID.
 //Then the innerHTML is changed to the html string we compiled.
 //Then we return that div.
-
   let div = document.getElementById('quote-box');
   div.innerHTML = html;
   return div
 }
-
-
-
-let newQuote = window.setInterval(printQuote, 10000);
 
 
 
