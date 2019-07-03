@@ -46,9 +46,6 @@ function randomColor() {
   return colors[randomNum2];
 
 }
-function stopTimer() {
-  clearInterval(newQuote);
-}
 
 /*
 This function creates an empty html string.
@@ -59,18 +56,27 @@ I set an interval time to reload the quote of 25 seconds.
 Background color changes when the button is pressed or when the interval time elapses.
 */
 
-function printQuote() {
-  let html = '';
+function quoteTimer() {
+  let timer;
+  clearInterval(timer);
+  timer = window.setInterval(printQuote, 10000);
+}
+
+function randomBackgroundColor() {
   let newBackground = randomColor();
   //Sets a new background color, then matches it to the quote button
   document.body.style.background = newBackground;
   document.getElementById("loadQuote").style.backgroundColor = newBackground;
+}
 
-  //Sets the window interval to change every 20 seconds. Then resets the timer
-  let newQuote = window.setInterval(printQuote, 10000);
-  clearInterval(newQuote);
-
+function printQuote() {
+  let html = '';
   let randomQuote =  getRandomQuote();
+
+  randomBackgroundColor();
+  quoteTimer();
+
+
   html += '<p class="quote">' + randomQuote.quote + '</p>';
   html += '<p class="source">' + randomQuote.source;
   if (randomQuote.citation) {
