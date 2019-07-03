@@ -55,9 +55,9 @@ It starts to compile a string of html from the different key/value pairs associa
 I set an interval time to reload the quote of 25 seconds.
 Background color changes when the button is pressed or when the interval time elapses.
 */
+let timer;
 
 function quoteTimer() {
-  let timer;
   clearInterval(timer);
   timer = window.setInterval(printQuote, 10000);
 }
@@ -75,7 +75,6 @@ function printQuote() {
 
   randomBackgroundColor();
   quoteTimer();
-
 
   html += '<p class="quote">' + randomQuote.quote + '</p>';
   html += '<p class="source">' + randomQuote.source;
