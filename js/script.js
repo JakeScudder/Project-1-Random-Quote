@@ -76,7 +76,7 @@ let timer;
 
 function quoteTimer() {
   clearInterval(timer);
-  timer = window.setInterval(printQuote, 10000);
+  timer = window.setInterval(printQuote, 20000);
 }
 
 function randomBackgroundColor() {
