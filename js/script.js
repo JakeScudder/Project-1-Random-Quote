@@ -13,27 +13,44 @@ let quotes = [
   {
   quote:"Nothing, to my way of thinking, is a better proof of a well ordered mind than a man’s ability to stop just where he is and pass some time in his own company." ,
   source: "Seneca",
-  category: "Stoicism"
+  thought: "Remember to breathe"
   },
   {
   quote:"Curb your desire—don’t set your heart on so many things and you will get what you need.",
   source: "Epictetus",
-  category: "Minimalism"
+  thought: "Remember the important things"
   },
   {
   quote:"Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned.",
-  source: "Buddha" },
+  source: "Buddha"
+  },
   {
   quote:"Persistence is very important. You should not give up unless you are forced to give up.",
   source: "Elon Musk",
-  category: "Entrepreneur"
+  thought: "Remember to keep going."
+  },
+  {quote: "When thinking about life, remember this: No amount of guilt can solve the past, and no amount of anxiety can change the future.",
+  source: "unknown"
+  },
+  {quote:"Letting go gives us freedom, and freedom is the only condition for happiness. If, in our heart, we still cling to anything—anger, anxiety, or possessions—we cannot be free.",
+  source: "Thich Naht Hanh"
+  },
+  {quote:"Your calm mind is the ultimate weapon against your challenges. So relax.",
+  source:"Bryant McGill"
   }
 ];
 
 //This function gets a random Quote by first getting a random Number and then searching the index of the quotes array for that object.
+let storedNum;
 
 function getRandomQuote() {
-  let randomNum = Math.floor(Math.random() * 5);
+  let randomNum = Math.floor(Math.random() * 8);
+  if (randomNum === storedNum) {
+    return getRandomQuote();
+  }
+  if (randomNum !== storedNum) {
+    storedNum = randomNum;
+  }
   return quotes[randomNum];
 }
 
@@ -84,8 +101,8 @@ function printQuote() {
   if (randomQuote.year) {
     html += '<span class="year">' + randomQuote.year + '</span>';
   }
-  if (randomQuote.category) {
-    html += '<span class="category">' + randomQuote.category + '</span>';
+  if (randomQuote.thought) {
+    html += '<span class="thought">' + randomQuote.thought + '</span>';
   }
   html += '</p>';
 

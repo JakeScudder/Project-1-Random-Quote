@@ -70,12 +70,12 @@ body {
   content: ", ";
   font-style: normal;
 }
-.category {
+.thought {
   font-style: italic;
   font-family:"Times New Roman";
 }
 
-.category:before {
+.thought:before {
   content: ", ";
   font-style: normal;
 
