@@ -105,12 +105,19 @@
     margin-top: 25px;
     margin-left: 25px;
   }
+  .quote:before {
+    top: -.25em;
+  }
   .quote:before, .quote:after {
     font-size: 1.6rem;
   }
   .source {
     margin-bottom: 10px;
     font-size: .8rem;
+  }
+
+  .thought {
+    margin-top: 20%;
   }
 
   #loadQuote {
