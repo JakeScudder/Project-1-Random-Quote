@@ -55,7 +55,7 @@ function getRandomQuote() {
     return getRandomQuote();
   }
   if (randomNum !== storedNum) {
-    storedNum = prevStoredNum;
+    prevStoredNum = storedNum;
     storedNum = randomNum;
   }
   return quotes[randomNum];
