@@ -62,11 +62,12 @@ function getRandomQuote() {
 }
 
 //Background color array containing css colors.
-let colors = ['deepskyblue', 'gainsboro', 'forestgreen','rosybrown', 'steelblue', 'tan', 'sienna'];
+let colors = ['deepskyblue', 'gainsboro', 'forestgreen','rosybrown', 'steelblue', 'tan', 'sienna', '#a2dbf7', '#a2dbf7', '#deae25', '#ffc390' ];
 
 //Function to pull a random color from the background color array.
 function randomColor() {
-  let randomNum2 = Math.floor(Math.random() * 7);
+
+  let randomNum2 = Math.floor(Math.random() * 11);
   return colors[randomNum2];
 
 }
