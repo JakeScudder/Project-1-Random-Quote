@@ -8,47 +8,54 @@ let quotes = [
   {
   quote:"Very little is needed to make a happy life; it is all within yourself, in your way of thinking.", source: "Marcus Aurelius",
   citation: "Meditations",
-  year: 1558
+  year: 1558,
+  thought: "Remember Necessity"
   },
   {
   quote:"Nothing, to my way of thinking, is a better proof of a well ordered mind than a man’s ability to stop just where he is and pass some time in his own company." ,
   source: "Seneca",
-  thought: "Remember to breathe"
+  thought: "Remember to Breathe"
   },
   {
   quote:"Curb your desire—don’t set your heart on so many things and you will get what you need.",
   source: "Epictetus",
-  thought: "Remember the important things"
+  thought: "Remember the Important Things"
   },
   {
   quote:"Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned.",
-  source: "Buddha"
+  source: "Buddha",
+  thought: "Remember to Forgive"
   },
   {
   quote:"Persistence is very important. You should not give up unless you are forced to give up.",
   source: "Elon Musk",
-  thought: "Remember to keep going."
+  thought: "Remember to keep going"
   },
   {quote: "When thinking about life, remember this: No amount of guilt can solve the past, and no amount of anxiety can change the future.",
-  source: "unknown"
+  source: "unknown",
+  thought: "Remember to Move On"
   },
   {quote:"Letting go gives us freedom, and freedom is the only condition for happiness. If, in our heart, we still cling to anything—anger, anxiety, or possessions—we cannot be free.",
-  source: "Thich Naht Hanh"
+  source: "Thich Naht Hanh",
+  thought: "Remember to Let Go"
   },
   {quote:"Your calm mind is the ultimate weapon against your challenges. So relax.",
-  source:"Bryant McGill"
+  source:"Bryant McGill",
+  thought: "Remember to Relax"
   }
 ];
 
 //This function gets a random Quote by first getting a random Number and then searching the index of the quotes array for that object.
 let storedNum;
+let prevStoredNum;
 
 function getRandomQuote() {
   let randomNum = Math.floor(Math.random() * 8);
-  if (randomNum === storedNum) {
+  if (randomNum === storedNum || randomNum === prevStoredNum) {
     return getRandomQuote();
   }
   if (randomNum !== storedNum) {
+    storedNum = prevStoredNum;
     storedNum = randomNum;
   }
   return quotes[randomNum];
@@ -93,6 +100,7 @@ function printQuote() {
   randomBackgroundColor();
   quoteTimer();
 
+  html += '<p class="thought">' + randomQuote.thought + '</p>';
   html += '<p class="quote">' + randomQuote.quote + '</p>';
   html += '<p class="source">' + randomQuote.source;
   if (randomQuote.citation) {
@@ -100,9 +108,6 @@ function printQuote() {
   }
   if (randomQuote.year) {
     html += '<span class="year">' + randomQuote.year + '</span>';
-  }
-  if (randomQuote.thought) {
-    html += '<span class="thought">' + randomQuote.thought + '</span>';
   }
   html += '</p>';
 
