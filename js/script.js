@@ -27,9 +27,15 @@ let quotes = [
   thought: "Remember to Forgive"
   },
   {
+    quote:"Programming isn't about what you know; it's about what you can figure out.",
+    source: "Chris Pine",
+    thought: "Remember to Persist"
+    },
+
+  {
   quote:"Persistence is very important. You should not give up unless you are forced to give up.",
   source: "Elon Musk",
-  thought: "Remember to keep going"
+  thought: "Remember to Persist"
   },
   {quote: "When thinking about life, remember this: No amount of guilt can solve the past, and no amount of anxiety can change the future.",
   source: "unknown",
